@@ -6,11 +6,9 @@ class Doctor extends Traveler {
         this.food = 2
         this.isHealthy = true;
     }
-    heal(traveler) {
-        if (traveler.isHealthy === false) {
-            traveler.isHealthy = true
-        }
-        traveler.isHealthy = true;
+    heal(traver) {
+        traver.isHealthy = true
+
     }
 
 }

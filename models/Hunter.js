@@ -9,7 +9,7 @@ class Hunter extends Traveler {
 
     /** @override */
     hunt() {
-        return this.food += 5;
+        this.food = this.food + 5;
     }
 
     /** @override */

@@ -2,31 +2,20 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 const assert = require("assert");
 
 const Traveler = require("./../../models/Traveler")
-const { doctor } = require("./../../app");
+const { doctor, viajante } = require("./../../app");
 const Doctor = require("../../models/Doctor");
-
-/** GIVEN */
-
 Given('um Doctor de nome {string}', function(string) {
-    doctor.name = string;
+    doctor.name = string
 });
-
-/** WHEN */
-
-When('um viajante estiver doente', function(boolean) {
-    viajante.isHealthy = boolean
-});
-When('o Doctor tratar', function(viajante) {
+Given('o Doctor tratar o viajante', function() {
     doctor.heal(viajante)
 });
-
-
-
-/** THEN */
-
-Then('o viajante devera ficar saudavel', function(traveler) {
-    assert.strictEqual(viajante.isHealthy, true)
+When('um viajante estiver doente', function() {
+    viajante.isHealthy = false;
 });
-then('o Doctor não ficará doente', function() {
-    assert.strictEqual(doctor.isHealthy, true)
+When('um viajante não estiver doente', function() {
+    viajante.isHealthy = true;
+});
+Then('o viajante devera ficar saudavel', function() {
+    assert.strictEqual(viajante.isHealthy, true)
 });

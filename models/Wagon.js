@@ -37,7 +37,6 @@ class Wagon {
         for (let i = 0; i < this.passageiros.length; i++) {
             foodAcuracy += this.passageiros[i].food
         }
-        console.log(foodAcuracy)
         return foodAcuracy;
 
 
