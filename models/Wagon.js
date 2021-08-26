@@ -1,7 +1,7 @@
 class Wagon {
     constructor(capacity) {
         this.capacity = capacity;
-        this.passageiros = [];
+        this.passengers = [];
         this.empetyPlace = 0;
     }
     set capacity(capacity) {
@@ -11,7 +11,7 @@ class Wagon {
         return this._capacity
     }
     getAvailableSeatCount() {
-        this.empetyPlace = this.capacity - this.passageiros.length;
+        this.empetyPlace = this.capacity - this.passengers.length;
         if (this.empetyPlace < 0) {
             this.empetyPlace = 0;
         }
@@ -19,14 +19,15 @@ class Wagon {
     }
     join(traver) {
         if (this.getAvailableSeatCount() > 0) {
-            this.passageiros.push(traver)
+            this.passengers.push(traver)
         }
+        return this.passengers;
 
     }
 
     shouldQuarantine() {
         for (let i = 0; i < this.passageiros.length; i++) {
-            if (this.passageiros[i].isHealthy === false) {
+            if (this.passengers[i].isHealthy === false) {
                 return true
             }
         }
@@ -34,12 +35,10 @@ class Wagon {
     }
     totalFood() {
         let foodAcuracy = 0;
-        for (let i = 0; i < this.passageiros.length; i++) {
-            foodAcuracy += this.passageiros[i].food
+        for (let i = 0; i < this.passengers.length; i++) {
+            foodAcuracy += this.passengers[i].food
         }
         return foodAcuracy;
-
-
     }
 
 }

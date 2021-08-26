@@ -13,7 +13,8 @@ class Traveler {
 
 
     hunt() {
-        return this.food += 2;
+        this.food += 2;
+        return this.food
     }
     eat() {
         if (this.food <= 0) {
@@ -21,7 +22,7 @@ class Traveler {
         } else {
             this.food -= 1;
         }
-
+        return this.food
     }
 }
 
